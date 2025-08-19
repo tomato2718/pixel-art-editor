@@ -1,68 +1,193 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-*: initial;
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-accent-4: var(--accent-4);
+  --color-accent-5: var(--accent-5);
+  --color-accent-6: var(--accent-6);
+  --color-accent-7: var(--accent-7);
+  --color-accent-8: var(--accent-8);
+  --color-accent-9: var(--accent-9);
+  --color-accent-10: var(--accent-10);
+  --color-accent-11: var(--accent-11);
+  --color-accent-12: var(--accent-12);
+  --color-neutral-1: var(--neutral-1);
+  --color-neutral-2: var(--neutral-2);
+  --color-neutral-3: var(--neutral-3);
+  --color-neutral-4: var(--neutral-4);
+  --color-neutral-5: var(--neutral-5);
+  --color-neutral-6: var(--neutral-6);
+  --color-neutral-7: var(--neutral-7);
+  --color-neutral-8: var(--neutral-8);
+  --color-neutral-9: var(--neutral-9);
+  --color-neutral-10: var(--neutral-10);
+  --color-neutral-11: var(--neutral-11);
+  --color-neutral-12: var(--neutral-12);
+  --color-red-1: var(--red-1);
+  --color-red-2: var(--red-2);
+  --color-red-3: var(--red-3);
+  --color-red-4: var(--red-4);
+  --color-red-5: var(--red-5);
+  --color-red-6: var(--red-6);
+  --color-red-7: var(--red-7);
+  --color-red-8: var(--red-8);
+  --color-red-9: var(--red-9);
+  --color-red-10: var(--red-10);
+  --color-red-11: var(--red-11);
+  --color-red-12: var(--red-12);
+  --color-amber-1: var(--amber-1);
+  --color-amber-2: var(--amber-2);
+  --color-amber-3: var(--amber-3);
+  --color-amber-4: var(--amber-4);
+  --color-amber-5: var(--amber-5);
+  --color-amber-6: var(--amber-6);
+  --color-amber-7: var(--amber-7);
+  --color-amber-8: var(--amber-8);
+  --color-amber-9: var(--amber-9);
+  --color-amber-10: var(--amber-10);
+  --color-amber-11: var(--amber-11);
+  --color-amber-12: var(--amber-12);
+  --color-green-1: var(--green-1);
+  --color-green-2: var(--green-2);
+  --color-green-3: var(--green-3);
+  --color-green-4: var(--green-4);
+  --color-green-5: var(--green-5);
+  --color-green-6: var(--green-6);
+  --color-green-7: var(--green-7);
+  --color-green-8: var(--green-8);
+  --color-green-9: var(--green-9);
+  --color-green-10: var(--green-10);
+  --color-green-11: var(--green-11);
+  --color-green-12: var(--green-12);
+  --color-black: #151515;
+  --color-white: #ffffff;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --accent-1: #fcfdff;
+  --accent-2: #f5f9ff;
+  --accent-3: #eaf2ff;
+  --accent-4: #dcebff;
+  --accent-5: #cbe1ff;
+  --accent-6: #b8d4ff;
+  --accent-7: #9fc2fb;
+  --accent-8: #7baaf6;
+  --accent-9: #3b82f6;
+  --accent-10: #2c74e9;
+  --accent-11: #256cde;
+  --accent-12: #123164;
+  --neutral-1: #fbfcfe;
+  --neutral-2: #f8f9fd;
+  --neutral-3: #edf0f6;
+  --neutral-4: #e4e8f0;
+  --neutral-5: #dce1eb;
+  --neutral-6: #d4dae5;
+  --neutral-7: #c8cfdd;
+  --neutral-8: #b3bcce;
+  --neutral-9: #858ea0;
+  --neutral-10: #7b8494;
+  --neutral-11: #5e6572;
+  --neutral-12: #1c202a;
+  --red-1: #fffcfc;
+  --red-2: #fff7f7;
+  --red-3: #feebec;
+  --red-4: #ffdbdc;
+  --red-5: #ffcdce;
+  --red-6: #fdbdbe;
+  --red-7: #f4a9aa;
+  --red-8: #eb8e90;
+  --red-9: #e5484d;
+  --red-10: #dc3e42;
+  --red-11: #ce2c31;
+  --red-12: #641723;
+  --amber-1: #fefdfb;
+  --amber-2: #fefbe9;
+  --amber-3: #fff7c2;
+  --amber-4: #ffee9c;
+  --amber-5: #fbe577;
+  --amber-6: #f3d673;
+  --amber-7: #e9c162;
+  --amber-8: #e2a336;
+  --amber-9: #ffc53d;
+  --amber-10: #ffba18;
+  --amber-11: #ab6400;
+  --amber-12: #4f3422;
+  --green-1: #fbfefc;
+  --green-2: #f4fbf6;
+  --green-3: #e6f6eb;
+  --green-4: #d6f1df;
+  --green-5: #c4e8d1;
+  --green-6: #adddc0;
+  --green-7: #8eceaa;
+  --green-8: #5bb98b;
+  --green-9: #30a46c;
+  --green-10: #2b9a66;
+  --green-11: #218358;
+  --green-12: #193b2d;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.dark {
+  --accent-1: #0b111c;
+  --accent-2: #101825;
+  --accent-3: #122647;
+  --accent-4: #123061;
+  --accent-5: #1a3c74;
+  --accent-6: #244985;
+  --accent-7: #2f589a;
+  --accent-8: #3868b8;
+  --accent-9: #3b82f6;
+  --accent-10: #2e75e8;
+  --accent-11: #85b5ff;
+  --accent-12: #d0e2ff;
+  --neutral-1: #111113;
+  --neutral-2: #19191b;
+  --neutral-3: #222325;
+  --neutral-4: #292a2e;
+  --neutral-5: #303136;
+  --neutral-6: #393a40;
+  --neutral-7: #46484f;
+  --neutral-8: #5f606a;
+  --neutral-9: #6c6e79;
+  --neutral-10: #797b86;
+  --neutral-11: #b2b3bd;
+  --neutral-12: #eeeef0;
+  --red-1: #191111;
+  --red-2: #201314;
+  --red-3: #3b1219;
+  --red-4: #500f1c;
+  --red-5: #611623;
+  --red-6: #72232d;
+  --red-7: #8c333a;
+  --red-8: #b54548;
+  --red-9: #e5484d;
+  --red-10: #ec5d5e;
+  --red-11: #ff9592;
+  --red-12: #ffd1d9;
+  --amber-1: #16120c;
+  --amber-2: #1d180f;
+  --amber-3: #302008;
+  --amber-4: #3f2700;
+  --amber-5: #4d3000;
+  --amber-6: #5c3d05;
+  --amber-7: #714f19;
+  --amber-8: #8f6424;
+  --amber-9: #ffc53d;
+  --amber-10: #ffd60a;
+  --amber-11: #ffca16;
+  --amber-12: #ffe7b3;
+  --green-1: #0e1512;
+  --green-2: #121b17;
+  --green-3: #132d21;
+  --green-4: #113b29;
+  --green-5: #174933;
+  --green-6: #20573e;
+  --green-7: #28684a;
+  --green-8: #2f7c57;
+  --green-9: #30a46c;
+  --green-10: #33b074;
+  --green-11: #3dd68c;
+  --green-12: #b1f1cb;
 }
