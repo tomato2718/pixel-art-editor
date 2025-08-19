@@ -17,3 +17,8 @@ wasm-build:
 wasm-fmt:
 	cd $(CURDIR)/wasm && \
 	cargo fmt
+
+.PHONY: wasm-test
+wasm-test:
+	cd $(CURDIR)/wasm && \
+	cargo test
