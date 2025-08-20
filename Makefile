@@ -11,7 +11,7 @@ web-dev:
 .PHONY: wasm-build
 wasm-build:
 	cd $(CURDIR)/wasm && \
-	wasm-pack build -t web -d $(CURDIR)/web/src/shared/PixelArtEditor --out-name index --release
+	wasm-pack build -t web -d $(CURDIR)/web/src/shared/Canvas --out-name index --release
 
 .PHONY: wasm-fmt
 wasm-fmt:
