@@ -39,6 +39,8 @@ export function useMouseEvent(
   pixelScale: number,
 ) {
   const MOUSE_DEFAULT_ALPHA = 0.4;
+  const x = pixelScale * (Math.ceil(mousePosition.x / pixelScale) - 1);
+  const y = pixelScale * (Math.ceil(mousePosition.y / pixelScale) - 1);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -46,9 +48,6 @@ export function useMouseEvent(
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-
-    const x = pixelScale * (Math.ceil(mousePosition.x / pixelScale) - 1);
-    const y = pixelScale * (Math.ceil(mousePosition.y / pixelScale) - 1);
 
     ctx.fillStyle = getComputedStyle(canvas).getPropertyValue("--grayscale-11");
 
@@ -69,5 +68,5 @@ export function useMouseEvent(
       canvas.removeEventListener("mousedown", drawFilled);
       canvas.removeEventListener("mouseup", drawDefault);
     };
-  }, [canvasRef, mousePosition, pixelScale]);
+  }, [canvasRef, x, y, pixelScale]);
 }
