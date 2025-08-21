@@ -1,24 +1,10 @@
-import { useEffect } from "react";
-
 import { Layout } from "./layout";
-import init, { greet } from "./shared/PixelArtEditor";
+import { Editor } from "./widgets/Editor";
 
-function App() {
-  useEffect(() => {
-    init().then();
-  }, []);
+export default function App() {
   return (
     <Layout>
-      <div className="w-full h-full flex items-center justify-center">
-        <button
-          className="px-4 py-2 rounded-xl bg-accent-9 hover:bg-accent-10 text-white cursor-pointer"
-          onClick={() => greet("World")}
-        >
-          Click me
-        </button>
-      </div>
+      <Editor />
     </Layout>
   );
 }
-
-export default App;
