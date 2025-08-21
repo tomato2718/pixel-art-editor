@@ -18,6 +18,14 @@ impl Canvas {
         }
     }
 
+    pub fn width(&self) -> usize {
+        self.width
+    }
+
+    pub fn height(&self) -> usize {
+        self.height
+    }
+
     pub fn get_pixel(&self, x: usize, y: usize) -> &Pixel {
         &self.pixels[y][x]
     }

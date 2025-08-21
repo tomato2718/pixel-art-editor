@@ -17,6 +17,16 @@ impl Canvas {
     }
 
     #[wasm_bindgen]
+    pub fn width(&self) -> usize {
+        self.canvas.width()
+    }
+
+    #[wasm_bindgen]
+    pub fn height(&self) -> usize {
+        self.canvas.height()
+    }
+
+    #[wasm_bindgen]
     pub fn get_pixel(&self, x: usize, y: usize) -> Box<[u8]> {
         let pixel = &self.canvas.get_pixel(x, y);
 
