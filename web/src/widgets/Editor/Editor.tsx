@@ -62,6 +62,26 @@ export function Editor() {
             onClick={() => setColor({ rgb: "#000000", alpha: 0 })}
           />
         </div>
+        <div>
+          <button
+            className="px-4 py-2 rounded-md bg-accent-9 hover:bg-accent-10 text-white cursor-pointer text-nowrap"
+            onClick={() => {
+              if (!editor) return;
+
+              const buffer = editor.to_png(PIXEL_SIZE).buffer as ArrayBuffer;
+              const blob = new Blob([buffer], { type: "image/png" });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = "PixelArt.png";
+              a.click();
+
+              URL.revokeObjectURL(url);
+            }}
+          >
+            Save as png
+          </button>
+        </div>
       </div>
     </div>
   );
