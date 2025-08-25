@@ -1,4 +1,4 @@
-.PHONY
+.PHONY: web-install
 web-install:
 	cd $(CURDIR)/web && \
 	npm i
