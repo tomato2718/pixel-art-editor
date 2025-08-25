@@ -8,6 +8,11 @@ web-dev:
 	cd $(CURDIR)/web && \
 	npm run dev
 
+.PHONY: web-build
+web-build:
+	cd $(CURDIR)/web && \
+	npm run build
+
 .PHONY: wasm-build
 wasm-build:
 	cd $(CURDIR)/wasm && \
