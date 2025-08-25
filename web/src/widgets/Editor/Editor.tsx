@@ -12,12 +12,17 @@ const WIDTH = 20;
 const HEIGHT = 20;
 
 export function Editor() {
-  const [color, setColor] = useState("#000000");
+  const [color, setColor] = useState({ rgb: "#000000", alpha: 0 });
   const editor = usePixelArtEditor(WIDTH, HEIGHT);
   const backgroundCanvasRef = useRef<HTMLCanvasElement>(null);
   const mouseCanvasRef = useRef<HTMLCanvasElement>(null);
   const mousePosition = useMousePosition(mouseCanvasRef);
-  const paint = usePaintBrush(editor, backgroundCanvasRef.current, PIXEL_SIZE, parseRGB(color));
+  const paint = usePaintBrush(
+    editor,
+    backgroundCanvasRef.current,
+    PIXEL_SIZE,
+    parseRGB(color.rgb, color.alpha),
+  );
 
   useBackground(backgroundCanvasRef, editor, PIXEL_SIZE);
   useMouseEvent(mouseCanvasRef, mousePosition, PIXEL_SIZE, paint);
@@ -38,25 +43,39 @@ export function Editor() {
           height={640}
         />
       </div>
-      <div className="h-full w-1/5">
-        <input
-          type="color"
-          value={color}
-          onChange={(e) => {
-            setColor(e.target.value);
-          }}
-        />
+      <div className="h-full w-1/5 flex flex-col gap-2">
+        <div className="flex gap-2  items-center">
+          <span>Color picker</span>
+          <input
+            type="color"
+            className="cursor-pointer"
+            value={color.rgb}
+            onChange={(e) => {
+              setColor({ rgb: e.target.value, alpha: 255 });
+            }}
+          />
+        </div>
+        <div className="flex gap-2 items-center">
+          <span>Remove pixel</span>
+          <button
+            className="border border-grayscale-6 hover:border-grayscale-7 cursor-pointer w-12 h-5"
+            onClick={() => setColor({ rgb: "#000000", alpha: 0 })}
+          />
+        </div>
       </div>
     </div>
   );
 }
 
-function parseRGB(rgbString: string): {
-  r: number,
-  g: number,
-  b: number,
-  a: number
-}{
+function parseRGB(
+  rgbString: string,
+  alpha: number,
+): {
+  r: number;
+  g: number;
+  b: number;
+  a: number;
+} {
   const rHex = rgbString.slice(1, 3);
   const gHex = rgbString.slice(3, 5);
   const bHex = rgbString.slice(5, 7);
@@ -64,6 +83,6 @@ function parseRGB(rgbString: string): {
     r: Number(`0x${rHex}`),
     g: Number(`0x${gHex}`),
     b: Number(`0x${bHex}`),
-    a: 255,
-  }
+    a: alpha,
+  };
 }
