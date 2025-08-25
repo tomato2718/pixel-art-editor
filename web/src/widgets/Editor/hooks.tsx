@@ -116,6 +116,7 @@ export function usePaintBrush(
       if (!ctx) return;
 
       ctx.fillStyle = `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a / 255})`;
+      ctx.clearRect(x, y, size, size);
       ctx.fillRect(x, y, size, size);
       editor.set_pixel(
         x / size,
