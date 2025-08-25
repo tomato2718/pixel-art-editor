@@ -1,3 +1,8 @@
+.PHONY
+web-install:
+	cd $(CURDIR)/web && \
+	npm i
+
 .PHONY: web-fmt
 web-fmt:
 	cd $(CURDIR)/web && \
