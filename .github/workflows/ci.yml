@@ -19,6 +19,8 @@ jobs:
         uses: jetli/wasm-pack-action@v0.4.0
       - name: setup node
         uses: actions/setup-node@v3.9.1
+      - name: node install
+        run: make web-install
       - name: build wasm
         run: make wasm-build
       - name: build web
