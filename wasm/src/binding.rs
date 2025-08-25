@@ -44,6 +44,11 @@ impl Canvas {
 
     #[wasm_bindgen]
     pub fn to_buffer(&self) -> Box<[u8]> {
-        self.canvas.to_buffer().into_boxed_slice()
+        self.canvas.to_buffer(1).into_boxed_slice()
+    }
+
+    #[wasm_bindgen]
+    pub fn to_png(&self, scale: usize) -> Box<[u8]> {
+        self.canvas.to_png(scale).into_boxed_slice()
     }
 }
