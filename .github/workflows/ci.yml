@@ -13,12 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: setup environment
+      - name: setup wasm bindgen
         uses: jetli/wasm-bindgen-action@v0.2.0
-      - name: build wasm
-        run: make wasm-build
+      - name: setup wasm pack
+        uses: jetli/wasm-pack-action@v0.4.0
       - name: setup node
         uses: actions/setup-node@v3.9.1
+      - name: build wasm
+        run: make wasm-build
       - name: build web
         run: make web-build
       - name: upload
