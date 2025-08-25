@@ -25,6 +25,6 @@ jobs:
         with:
           path: web/dist
 
-  release:
-    needs: [build]
-    runs-on: ubuntu-latest
+  # release:
+  #   needs: [build]
+  #   runs-on: ubuntu-latest
